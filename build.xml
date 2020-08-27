@@ -11,6 +11,10 @@
 		<property name="workspaces.dir" value="/var/lib/jenkins/workspace/iib-test-job" />
 		<echo message="Workspace at ${workspaces.dir}" />
 		
+		<property name="iib.mqsiprofile" value="/opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsiprofile" />
+		<echo message="profile at ${iib.mqsiprofile}" />
+		
+		
 		<!-- Format Bar file name -->
 		<property name="bar.name" value="DEMO_CICD" />
 		<property name="version.num" value="V9"/>
@@ -73,7 +77,7 @@
 			
 	  
 	  
-	<!--  <exec executable="sudo">
+	  <exec executable="sudo">
 	  <arg value="-p" />
 	  <arg value="-p" />
       <arg value="-n" />
@@ -82,13 +86,11 @@
       <arg value="sh" />
       <arg value="--login" />
       <arg value="-c" />
-      <arg value=". /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsiprofile" />
-    </exec> -->
+      <arg value=". ${iib.mqsiprofile}" />
+    </exec>
+	<echo message="inside profile ---" />
 	
-	<exec executable="cd /opt/IBM">
-	<echo message="loading mqsiprofile ---" />
-	</exec>
-	
+		
 	
 	</target>
 	  
