@@ -75,21 +75,6 @@
 		  <arg value="${iib.mqsiprofile}" />
 		</exec>  			
 	  
-	  
-	<!--  <exec executable="sudo">
-	  <arg value="-p" />
-	  <arg value="-p" />
-      <arg value="-n" />
-      <arg value="-u" />
-      <arg value="ec2-user" />
-      <arg value="sh" />
-      <arg value="--login" />
-      <arg value="-c" />
-      <arg value=". ${iib.mqsiprofile}" />
-    </exec>
-	<echo message="inside profile ---" /> -->
-	
-		
 	
 	</target>
 	  
