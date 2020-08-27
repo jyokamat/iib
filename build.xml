@@ -73,7 +73,9 @@
 			
 	  
 	  
-	  <exec executable="sudo">
+	<!--  <exec executable="sudo">
+	  <arg value="-p" />
+	  <arg value="-p" />
       <arg value="-n" />
       <arg value="-u" />
       <arg value="ec2-user" />
@@ -81,7 +83,12 @@
       <arg value="--login" />
       <arg value="-c" />
       <arg value=". /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsiprofile" />
-    </exec>
+    </exec> -->
+	
+	<exec executable=". /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsiprofile">
+	<echo message="loading mqsiprofile---" />
+	</exec>
+	
 	
 	</target>
 	  
