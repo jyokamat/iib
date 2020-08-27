@@ -11,7 +11,7 @@
 		<property name="workspaces.dir" value="/var/lib/jenkins/workspace/iib-test-job" />
 		<echo message="Workspace at ${workspaces.dir}" />
 		
-		<property name="iib.mqsiprofile" value="/opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsiprofile" />
+		<property name="iib.mqsiprofile" value=". /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsiprofile" />
 		<echo message="profile at ${iib.mqsiprofile}" />
 		
 		
@@ -71,8 +71,9 @@
 
 	   <target name="mqsiprofilecmd.buildbar" unless="DEMO_CICD" depends="mqsicreatebar.buildbar" >
 		
-		<exec executable=".">
-		  <arg value="${iib.mqsiprofile}" />
+		<exec executable="cd">
+		  <arg value="/opt/IBM; ${iib.mqsiprofile}" />
+		  
 		</exec>  			
 	  
 	
