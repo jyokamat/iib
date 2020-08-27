@@ -19,7 +19,7 @@
 			<format property="DATE" pattern="yyyy-MM-dd" />
 		</tstamp>
 
-        <antcall target="mqsicreatebar.buildbar" />
+        <antcall target="mqsideploybar.buildbar" />
       
 </target>
 
@@ -43,6 +43,35 @@
 		</exec>
 		<echo message="Bar built successfully ---" />
 	<!--	<antcall target="check.bar.creation"/> -->
+	  </target>
+	  
+	  
+	 <target name="mqsideploybar.buildbar" unless="DEMO_CICD" depends="mqsiprofilecmd.buildbar" >
+		
+	
+		<echo message="Deploying Broker Archive file: DEMO_CICD" />
+		<exec executable="mqsideploy" failifexecutionfails="on" >
+			<arg value="IBNODE" />
+			<arg value="-e" />
+			<arg value="IBServer" />
+			<arg value="-a" />
+			<arg value="/opt/IBM/DEMO_CICD.bar" />
+			<arg value="-w" />
+			<arg value= "120" />
+		</exec>
+		<echo message="Bar deployed successfully ---" />
+		
+			
+	  </target>
+
+
+	   <target name="mqsiprofilecmd.buildbar" unless="DEMO_CICD" depends="mqsicreatebar.buildbar" >
+		
+		<exec executable="sh">
+		  <arg value="-c" />
+		  <arg value=". /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsiprofile" />
+		</exec> 
+			
 	  </target>
 	  
 	
