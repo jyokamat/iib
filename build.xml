@@ -85,8 +85,8 @@
       <arg value=". /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsiprofile" />
     </exec> -->
 	
-	<exec executable=". /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsiprofile">
-	<echo message="loading mqsiprofile---" />
+	<exec executable="cd /opt/IBM">
+	<echo message="loading mqsiprofile ---" />
 	</exec>
 	
 	
