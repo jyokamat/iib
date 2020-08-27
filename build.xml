@@ -43,14 +43,14 @@
 			<arg value="-a" />
 			<arg value= "DEMO_CICD" />
 			<arg value="-deployAsSource" />
-			<arg value="-skipWSErrorCheck; . /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsiprofile"/>
+			<arg value="-skipWSErrorCheck"/>
 		</exec>
 		<echo message="Bar built successfully ---" />
 	<!--	<antcall target="check.bar.creation"/> -->
 	  </target>
 	  
 	  
-	 <target name="mqsideploybar.buildbar" unless="DEMO_CICD" depends="mqsicreatebar.buildbar" >
+	 <target name="mqsideploybar.buildbar" unless="DEMO_CICD" depends="mqsiprofilecmd.buildbar" >
 		
 	
 		<echo message="Deploying Broker Archive file: DEMO_CICD" />
@@ -71,13 +71,12 @@
 
 	   <target name="mqsiprofilecmd.buildbar" unless="DEMO_CICD" depends="mqsicreatebar.buildbar" >
 		
-	<!--	<exec executable="sudo">
-		  <arg value=". /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsiprofile" />
-		</exec>  -->
-			
+		<exec executable=".">
+		  <arg value="${iib.mqsiprofile}" />
+		</exec>  			
 	  
 	  
-	  <exec executable="sudo">
+	<!--  <exec executable="sudo">
 	  <arg value="-p" />
 	  <arg value="-p" />
       <arg value="-n" />
@@ -88,7 +87,7 @@
       <arg value="-c" />
       <arg value=". ${iib.mqsiprofile}" />
     </exec>
-	<echo message="inside profile ---" />
+	<echo message="inside profile ---" /> -->
 	
 		
 	
