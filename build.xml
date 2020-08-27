@@ -67,8 +67,8 @@
 
 	   <target name="mqsiprofilecmd.buildbar" unless="DEMO_CICD" depends="mqsicreatebar.buildbar" >
 		
-		<exec executable=".">
-		  <arg value="/opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsiprofile" />
+		<exec executable="sudo">
+		  <arg value=". /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsiprofile" />
 		</exec> 
 			
 	  </target>
