@@ -71,7 +71,7 @@
 
 	   <target name="mqsiprofilecmd.buildbar" unless="DEMO_CICD" depends="mqsicreatebar.buildbar" >
 		
-		<exec executable="cd">
+	<!--	<exec executable="cd">
 		  <arg value="/opt/IBM" />
 		  
 		</exec>  
@@ -79,8 +79,12 @@
 		<exec executable=".">
 		  <arg value="${iib.mqsiprofile}" />
 		  
+		</exec>  -->
+		
+				 
+		 <exec executable=". /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsiprofile">
+		  
 		</exec>  
-	  
 	
 	</target>
 	  
