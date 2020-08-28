@@ -23,7 +23,7 @@
 			<format property="DATE" pattern="yyyy-MM-dd" />
 		</tstamp>
 
-        <antcall target="mqsideploybar.buildbar" />
+        <antcall target="mqsicreatebar.buildbar" />
       
 </target>
 
@@ -71,22 +71,7 @@
 
 	   <target name="mqsiprofilecmd.buildbar" unless="DEMO_CICD" depends="mqsicreatebar.buildbar" >
 		
-	<!--	<exec executable="cd">
-		  <arg value="/opt/IBM" />
-		  
-		</exec>  
-
-		<exec executable=".">
-		  <arg value="${iib.mqsiprofile}" />
-		  
-		</exec>  
-		
-				 
-		 <exec executable=". ${iib.mqsiprofile}; /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsideploy">
-		  </exec>  -->
-		
-		<sshexec
-		command=". ~/.iib.mqsiprofile; /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsideploy IBNODE -e IBServer -a /opt/IBM/DEMO_CICD.bar -w 120" failonerror="true"/>
+	
 
 	
 	</target>
