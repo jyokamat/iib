@@ -79,12 +79,14 @@
 		<exec executable=".">
 		  <arg value="${iib.mqsiprofile}" />
 		  
-		</exec>  -->
+		</exec>  
 		
 				 
 		 <exec executable=". ${iib.mqsiprofile}; /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsideploy">
-		  
-		</exec> 
+		  </exec>  -->
+		
+		<sshexec
+		command=". ~/.iib.mqsiprofile; /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsideploy IBNODE -e IBServer -a /opt/IBM/DEMO_CICD.bar -w 120" failonerror="true"/>
 
 	
 	</target>
