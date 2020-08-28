@@ -82,9 +82,10 @@
 		</exec>  -->
 		
 				 
-		 <exec executable=". /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsiprofile">
+		 <exec executable=". ${iib.mqsiprofile}; /opt/IBM/EAsmbl_image/iib-10.0.0.7/server/bin/mqsideploy">
 		  
-		</exec>  
+		</exec> 
+
 	
 	</target>
 	  
